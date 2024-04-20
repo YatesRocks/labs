@@ -7,6 +7,12 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Objects;
 
+/**
+ * A simple controller class for the FileLister.
+ * You first register the FileLister in the constructor,
+ * then it takes over the business logic. Since the
+ * logic is so simple, I didn't bother with a model.
+ */
 public class FileListerController {
     private final FileLister fileLister;
 
