@@ -1,10 +1,6 @@
 package labs.yates.view.components;
 
-import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
 
 public class FSViewer extends JTextArea {
     private final StringBuilder contents = new StringBuilder();

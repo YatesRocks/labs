@@ -1,17 +1,17 @@
-package labs.yates.view.panel;
+package labs.yates.view.panels;
 
 import labs.yates.controller.CardController;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class LabMenu extends JPanel {
     public LabMenu() {
         setLayout(new MigLayout(""));
-        JPanel container = new JPanel();
+        JPanel container = new JPanel(new MigLayout());
         button("Lab 11: FileLister", container, "Lab11");
+        button("Lab 09: Data Streams", container, "Lab9");
         add(container, "push, align center, center");
     }
 
@@ -20,6 +20,6 @@ public class LabMenu extends JPanel {
         button.addActionListener(e -> {
             CardController.showComponent(componentName);
         });
-        container.add(button, "wrap");
+        container.add(button, "wrap, growx");
     }
 }

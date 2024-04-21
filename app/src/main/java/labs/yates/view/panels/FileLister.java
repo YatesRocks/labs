@@ -1,4 +1,4 @@
-package labs.yates.view.panel;
+package labs.yates.view.panels;
 
 import labs.yates.controller.CardController;
 import labs.yates.controller.FileListerController;

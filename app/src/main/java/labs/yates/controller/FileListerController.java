@@ -1,7 +1,7 @@
 package labs.yates.controller;
 
 import labs.yates.view.components.FSViewer;
-import labs.yates.view.panel.FileLister;
+import labs.yates.view.panels.FileLister;
 
 import java.io.File;
 import java.nio.file.Path;
