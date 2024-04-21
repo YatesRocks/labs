@@ -6,13 +6,13 @@ import labs.yates.view.components.InputField;
 
 import java.io.File;
 
-public class TextFilterBox extends BasePanel {
+public class FileFilter extends BasePanel {
     private final FileFilterController controller;
     // TODO: should *probably* be private but idrc
     public FileDisplayer original = new FileDisplayer();
     public FileDisplayer filtered = new FileDisplayer();
 
-    public TextFilterBox() {
+    public FileFilter() {
         super("Load a file");
 
         controller = new FileFilterController(this);

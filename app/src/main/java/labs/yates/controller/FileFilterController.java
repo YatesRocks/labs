@@ -1,41 +1,46 @@
 package labs.yates.controller;
 
 import labs.yates.model.Regexp;
-import labs.yates.view.panels.TextFilterBox;
+import labs.yates.view.panels.FileFilter;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Vector;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class FileFilterController {
-    private final TextFilterBox textFilterBox;
+    private final FileFilter fileFilter;
     private Regexp regexp;
 
-    public FileFilterController(TextFilterBox textFilterBox) {
-        this.textFilterBox = textFilterBox;
+    public FileFilterController(FileFilter textFilterBox) {
+        this.fileFilter = textFilterBox;
     }
 
-    // Load the file as a stream
+    /**
+     * Loads the file into the left display,
+     * or if there is an error does nothing,
+     * only reporting the error.
+     *
+     * @param file the file to load
+     */
     public void loadFile(File file) {
-        assert !file.isDirectory();
-        assert file.canRead();
-
         try {
             String contents = Files.readString(file.toPath());
-            textFilterBox.original.setContents(contents);
+            fileFilter.original.setContents(contents);
             regexp = new Regexp(contents);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
+    /**
+     * Highlights the left side, and puts
+     * all matching lines on the right side.
+     *
+     * @param regex the regular expression to use
+     */
     public void highlight(String regex) {
+        // they haven't loaded a file yet,
+        // do nothing.
         if (regexp == null)
             return;
 
@@ -44,7 +49,7 @@ public class FileFilterController {
         for (String line : this.regexp.matchingLines(regex))
             builder.append(line).append("\n");
 
-        textFilterBox.filtered.setContents(builder.toString());
-        textFilterBox.original.highlight(regex);
+        fileFilter.filtered.setContents(builder.toString());
+        fileFilter.original.highlight(regex);
     }
 }

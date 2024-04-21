@@ -7,7 +7,7 @@ import labs.yates.controller.CardController;
 import javax.swing.SwingUtilities;
 import com.formdev.flatlaf.FlatLightLaf;
 import labs.yates.view.panels.LabMenu;
-import labs.yates.view.panels.TextFilterBox;
+import labs.yates.view.panels.FileFilter;
 
 public class App {
     private static void run() {
@@ -17,7 +17,7 @@ public class App {
         // Here we register all the Lab panes w/the global CardLayout / JPanel
         CardController.registerComponent("Menu", new LabMenu());
         CardController.registerComponent("Lab11", new FileLister());
-        CardController.registerComponent("Lab9", new TextFilterBox());
+        CardController.registerComponent("Lab9", new FileFilter());
     }
     
     public static void main(String[] args) {
