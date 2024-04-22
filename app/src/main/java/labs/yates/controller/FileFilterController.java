@@ -39,6 +39,7 @@ public class FileFilterController {
      * @param regex the regular expression to use
      */
     public void highlight(String regex) {
+        fileFilter.original.clearHighlighting();
         // they haven't loaded a file yet,
         // do nothing.
         if (regexp == null)
