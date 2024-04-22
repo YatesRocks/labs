@@ -8,8 +8,10 @@ import java.awt.event.ActionListener;
 // TODO: Document class
 public class InputField extends JPanel {
     private final JTextField textField;
-    private final JButton acceptButton;
+    private JButton acceptButton;
 
+    // TODO: Switch to new API
+    @Deprecated
     public InputField(String ghostText, String buttonText) {
         setLayout(new MigLayout());
 
@@ -20,11 +22,24 @@ public class InputField extends JPanel {
         add(acceptButton, "wrap");
     }
 
+    public InputField(String ghostText) {
+        setLayout(new MigLayout());
+
+        textField = new HintTextField(ghostText);
+        add(textField, "push, grow");
+    }
+
+    public void addButton(JButton button) {
+        // Shouldn't need "wrap" here because this is docked downstream
+        add(button);
+    }
+
     // TODO: make it so it returns null, not the ghost text on an empty field
     public String getText() {
         return textField.getText();
     }
 
+    @Deprecated
     public void addActionListener(ActionListener actionListener) {
         acceptButton.addActionListener(actionListener);
     }
