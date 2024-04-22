@@ -11,6 +11,8 @@ public class Window extends JFrame {
         setSize(width, height);
         setTitle("Labs");
 
+        // note: take a look at registerView(),
+        // the implementation is very simple.
         CardController.registerView(this);
 
         setVisible(true);

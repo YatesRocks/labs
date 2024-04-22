@@ -14,12 +14,13 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
 
 public class TagExtractor extends BasePanel {
     private final JTextField pathField = pathField();
     private Path filePath = null;
-    private Path stopWordsPath = null;
-    private TextStripper textStripper = null;
+    private final Path stopWordsPath = null;
+    private final TextStripper textStripper = null;
     private final FileDisplayer fileDisplayer = new FileDisplayer();
 
     public TagExtractor() {
@@ -59,12 +60,14 @@ public class TagExtractor extends BasePanel {
     }
 
     private void openFile(ActionEvent e) {
-        File file = getFile(JFileChooser.FILES_ONLY);
-        filePath = file.toPath();
+        filePath = getFile(JFileChooser.FILES_ONLY).toPath();
         // Space is so it's not too close to the edge
         pathField.setText(" " + filePath);
         try {
-            fileDisplayer.setContents(Files.readString(filePath));
+            String contents = Files.readString(filePath);
+            if (textStripper == null)
+                JOptionPane.showMessageDialog(null, "No stop word list available", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Hoorah!");
         } catch (IOException ex) {
             // TODO: Make more robust
             throw new RuntimeException(ex);
