@@ -23,18 +23,12 @@ public class TagExtractor extends BasePanel {
     private final FileDisplayer fileDisplayer = new FileDisplayer();
 
     public TagExtractor() {
-        super("Load stop words");
-        // TODO: Do stuff on load stop words click
-        setAction(e -> {
-            stopWordsPath = getFile(JFileChooser.FILES_ONLY).toPath();
-            textStripper = new TextStripper(stopWordsPath);
-        });
-
         // The file dock is for opening a new text file
         add(fileDock(), "dock north, push, grow");
         // Displays the file
         add(fileDisplayer, "gap 5 5 5 5, push, grow");
-        add(buttonPane(), "dock south, push, grow");
+        JButton loadStopWords = button("Load stop words", this::loadStopWords);
+        add(buttonPane(loadStopWords), "dock south, push, grow");
     }
 
     private JTextField pathField() {
@@ -56,8 +50,12 @@ public class TagExtractor extends BasePanel {
         return panel;
     }
 
-    private void save(ActionEvent e) {
+    private void loadStopWords(ActionEvent e) {
+        // TODO
+    }
 
+    private void save(ActionEvent e) {
+        // TODO
     }
 
     private void openFile(ActionEvent e) {

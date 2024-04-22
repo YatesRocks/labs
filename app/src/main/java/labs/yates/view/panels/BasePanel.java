@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public abstract class BasePanel extends JPanel {
-    private final JButton actionButton;
+    @Deprecated
+    private JButton actionButton;
 
     @Deprecated
     protected BasePanel(String actionCommand) {
@@ -18,18 +19,24 @@ public abstract class BasePanel extends JPanel {
         actionButton = new JButton(actionCommand);
     }
 
-    protected BasePanel(JButton actionButton) {
-        this.actionButton = actionButton;
-    }
+    protected BasePanel() {}
 
     /**
      * Creates a pane filled with buttons needed across every lab.
      * Stuff like close, menu, and an action button. The action
      * button must be configured through other methods.
+     * <hr>
+     * Deprecated in favor of the new API.
+     * This is marked for removal.
      *
      * @return A JPanel with generic buttons
      */
+    @Deprecated
     protected JPanel buttonPane() {
+        return buttonPane(actionButton);
+    }
+
+    protected JPanel buttonPane(JButton actionButton) {
         JPanel contentPane = new JPanel(new MigLayout());
         contentPane.setBorder(new LineBorder(Color.LIGHT_GRAY));
 
@@ -82,7 +89,7 @@ public abstract class BasePanel extends JPanel {
      * @param actionListener The action listener to apply
      * @return The customized button
      */
-    protected JButton button(String label, ActionListener actionListener) {
+    protected static JButton button(String label, ActionListener actionListener) {
         JButton open = new JButton(label);
         open.addActionListener(actionListener);
         return open;
