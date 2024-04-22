@@ -1,14 +1,14 @@
 package labs.yates;
 
-import labs.yates.view.Window;
-import labs.yates.view.panels.FileLister;
-import labs.yates.controller.CardController;
-
-import javax.swing.SwingUtilities;
 import com.formdev.flatlaf.FlatLightLaf;
-import labs.yates.view.panels.LabMenu;
+import labs.yates.controller.CardController;
+import labs.yates.view.Window;
 import labs.yates.view.panels.FileFilter;
+import labs.yates.view.panels.FileLister;
+import labs.yates.view.panels.LabMenu;
 import labs.yates.view.panels.TagExtractor;
+
+import javax.swing.*;
 
 public class App {
     private static void run() {

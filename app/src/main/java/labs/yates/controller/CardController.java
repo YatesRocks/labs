@@ -1,8 +1,8 @@
 package labs.yates.controller;
 
-import java.awt.*;
 import javax.management.openmbean.KeyAlreadyExistsException;
 import javax.swing.*;
+import java.awt.*;
 import java.util.Vector;
 
 /**

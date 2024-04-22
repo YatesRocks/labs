@@ -1,6 +1,6 @@
 package labs.yates.view;
 
-import labs.yates.controller.*;
+import labs.yates.controller.CardController;
 
 import javax.swing.*;
 

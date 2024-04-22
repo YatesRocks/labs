@@ -1,6 +1,5 @@
 package labs.yates.view.panels;
 
-import com.formdev.flatlaf.util.FontUtils;
 import labs.yates.model.TextStripper;
 import labs.yates.view.components.FileDisplayer;
 import labs.yates.view.components.SerifFont;
@@ -9,12 +8,9 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
 
 public class TagExtractor extends BasePanel {
     private final JTextField pathField = pathField();

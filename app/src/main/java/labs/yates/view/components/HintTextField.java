@@ -3,11 +3,10 @@ package labs.yates.view.components;
 // Adapted and modified from an online tutorial.
 // Credit: http://javaswingcomponents.blogspot.com/2012/05/how-to-create-simple-hinttextfield-in.html
 
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import javax.swing.JTextField;
 
 /**
  * HintTextField provides a utility class for input
