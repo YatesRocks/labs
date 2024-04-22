@@ -1,5 +1,7 @@
 package labs.yates.model;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -43,8 +45,12 @@ public class TextStripper {
         this(List.of(normalize(stopWords).split("\\s+")));
     }
 
-    public TextStripper(Path stopFile) {
-
+    /**
+     * @param stopFile The file to pull the stop words from.
+     * @throws IOException If Files.readString() fails
+     */
+    public TextStripper(Path stopFile) throws IOException {
+        this(normalize(Files.readString(stopFile)));
     }
 
     /**
