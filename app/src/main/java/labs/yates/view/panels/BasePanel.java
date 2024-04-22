@@ -19,7 +19,9 @@ public abstract class BasePanel extends JPanel {
         actionButton = new JButton(actionCommand);
     }
 
-    protected BasePanel() {}
+    protected BasePanel() {
+        setLayout(new MigLayout());
+    }
 
     /**
      * Creates a pane filled with buttons needed across every lab.
