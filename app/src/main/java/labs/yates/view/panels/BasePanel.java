@@ -10,13 +10,25 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public abstract class BasePanel extends JPanel {
-    private final JButton actionButton = new JButton();
+    private final JButton actionButton;
 
+    @Deprecated
     protected BasePanel(String actionCommand) {
         setLayout(new MigLayout());
-        actionButton.setText(actionCommand);
+        actionButton = new JButton(actionCommand);
     }
 
+    protected BasePanel(JButton actionButton) {
+        this.actionButton = actionButton;
+    }
+
+    /**
+     * Creates a pane filled with buttons needed across every lab.
+     * Stuff like close, menu, and an action button. The action
+     * button must be configured through other methods.
+     *
+     * @return A JPanel with generic buttons
+     */
     protected JPanel buttonPane() {
         JPanel contentPane = new JPanel(new MigLayout());
         contentPane.setBorder(new LineBorder(Color.LIGHT_GRAY));
@@ -34,17 +46,45 @@ public abstract class BasePanel extends JPanel {
         return contentPane;
     }
 
+    /**
+     * Set the callback for the Action button in the bottom Button Pane.
+     * Deprecated, please use the new constructor taking in a JButton instead.
+     *
+     * @param actionListener The callback for when Action is pressed.
+     */
+    @Deprecated
     protected void setAction(ActionListener actionListener) {
         actionButton.addActionListener(actionListener);
     }
 
-    protected File getFile() {
+    /**
+     * A convenience function for the action of "I need a file".
+     * Returns null if the user escapes out of the dialog
+     *
+     * @param selectionMode Directories or files?
+     * @return a File, or null
+     */
+    protected File getFile(int selectionMode) {
         JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        chooser.setFileSelectionMode(selectionMode);
         int returnVal = chooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             return chooser.getSelectedFile();
         }
         return null;
+    }
+
+    /**
+     * A convenience method for creating a button and adding
+     * an action listener.
+     *
+     * @param label The label for the button
+     * @param actionListener The action listener to apply
+     * @return The customized button
+     */
+    protected JButton button(String label, ActionListener actionListener) {
+        JButton open = new JButton(label);
+        open.addActionListener(actionListener);
+        return open;
     }
 }

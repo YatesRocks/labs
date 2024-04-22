@@ -4,13 +4,14 @@ import labs.yates.controller.FileFilterController;
 import labs.yates.view.components.FileDisplayer;
 import labs.yates.view.components.InputField;
 
+import javax.swing.*;
 import java.io.File;
 
 public class FileFilter extends BasePanel {
     private final FileFilterController controller;
-    // TODO: should *probably* be private but idrc
-    public FileDisplayer original = new FileDisplayer();
-    public FileDisplayer filtered = new FileDisplayer();
+    // TODO: should *probably* be private but oh well
+    public final FileDisplayer original = new FileDisplayer();
+    public final FileDisplayer filtered = new FileDisplayer();
 
     public FileFilter() {
         super("Load a file");
@@ -27,7 +28,7 @@ public class FileFilter extends BasePanel {
         add(buttonPane(), "dock south");
 
         setAction(e -> {
-            File file = getFile();
+            File file = getFile(JFileChooser.FILES_ONLY);
             if (file != null)
                 controller.loadFile(file);
         });

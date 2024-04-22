@@ -12,6 +12,7 @@ public class LabMenu extends JPanel {
         JPanel container = new JPanel(new MigLayout());
         button("Lab 11: FileLister", container, "Lab11");
         button("Lab 09: Data Streams", container, "Lab9");
+        button("Lab 08: Tag Extractor", container, "Lab8");
         add(container, "push, align center, center");
     }
 
