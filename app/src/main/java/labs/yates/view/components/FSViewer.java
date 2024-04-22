@@ -2,6 +2,7 @@ package labs.yates.view.components;
 
 import javax.swing.*;
 
+// TODO: Document & expand or mark deprecated & rewrite. Either or.
 public class FSViewer extends JTextArea {
     private final StringBuilder contents = new StringBuilder();
 

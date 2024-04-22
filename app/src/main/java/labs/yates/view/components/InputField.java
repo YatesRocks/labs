@@ -5,6 +5,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+// TODO: Document class
 public class InputField extends JPanel {
     private final JTextField textField;
     private final JButton acceptButton;

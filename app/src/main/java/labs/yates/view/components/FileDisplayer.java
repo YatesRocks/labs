@@ -10,6 +10,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+/**
+ * I found myself needing to display files of some kind
+ * in every lab, so here ya go: ready-made file displayer.
+ */
 public class FileDisplayer extends JScrollPane {
     private final JTextPane contents = new JTextPane();
 
@@ -26,6 +30,7 @@ public class FileDisplayer extends JScrollPane {
         contents.setText(newContents);
     }
 
+    // TODO: Do I need this function?
     public void setContents(String newContents, String regex) {
         setContents(newContents);
         highlight(regex);

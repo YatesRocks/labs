@@ -12,6 +12,8 @@ import javax.swing.*;
 
 public class App {
     private static void run() {
+        // FlatLightLaf gives Swing a much more
+        // modern look.
         FlatLightLaf.setup();
         // Configures the window & launches
         new Window(600, 600);

@@ -10,8 +10,11 @@ import java.awt.event.FocusEvent;
 
 /**
  * HintTextField provides a utility class for input
- * boxes that adds a "Ghost text" for the user to
+ * boxes that adds "ghost text" for the user to
  * better understand what the field is for.
+ * For all purposes consider it equivalent
+ * to JTextField, but with greyed out ghost
+ * text of your choice.
  */
 public class HintTextField extends JTextField {
     protected Font gainFont = new Font("Sans-serif", Font.PLAIN, 12);
