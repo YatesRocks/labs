@@ -73,7 +73,7 @@ public abstract class BasePanel extends JPanel {
      * @param selectionMode Directories or files?
      * @return a File, or null
      */
-    protected File getFile(int selectionMode) {
+    public File getFile(int selectionMode) {
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(selectionMode);
         int returnVal = chooser.showOpenDialog(this);
@@ -95,5 +95,9 @@ public abstract class BasePanel extends JPanel {
         JButton open = new JButton(label);
         open.addActionListener(actionListener);
         return open;
+    }
+
+    public void warnFile() {
+        JOptionPane.showMessageDialog(this, "Whoops! There was an error while reading a file", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
