@@ -9,12 +9,13 @@ import java.awt.event.ActionListener;
 
 public class TagExtractor extends BasePanel {
     private final TagExtractorController controller = new TagExtractorController(this);
-    // Displays the tagged output.
+    // Used by the controller
     public FileDisplayer tagFile = new FileDisplayer();
 
     public TagExtractor() {
-        ActionListener loadText = e -> controller.load(getFile(JFileChooser.FILES_ONLY));
-        ActionListener loadStopWords = e -> controller.loadSW(getFile(JFileChooser.FILES_ONLY));
+        // TODO: Inline these?
+        ActionListener loadText = e -> controller.load();
+        ActionListener loadStopWords = e -> controller.loadSW();
         ActionListener save = e -> controller.save();
         LabeledActionRow labeledActionRow = new LabeledActionRow("Path");
         labeledActionRow.addButton(button("Load File", loadText));
@@ -22,5 +23,9 @@ public class TagExtractor extends BasePanel {
         add(labeledActionRow, "dock north, push, grow");
         add(tagFile, "push, grow, pad 0 5 -5 -5");
         add(buttonPane(button("Load stop words", loadStopWords)), "dock south, push, grow");
+    }
+
+    public void warnSW() {
+        JOptionPane.showMessageDialog(this, "Whoops! You need to load stop words first.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

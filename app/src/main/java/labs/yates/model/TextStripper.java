@@ -1,5 +1,7 @@
 package labs.yates.model;
 
+import com.sun.source.tree.Tree;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +18,7 @@ public class TextStripper {
     // we check against this
     private final HashSet<String> stopWords = new HashSet<>();
     // some caching would probably be smart
-    private HashMap<String, Integer> cached = new HashMap<>();
+    private TreeMap<String, Integer> cached = new TreeMap<>();
     private int inputHash;
 
     /**
@@ -62,8 +64,8 @@ public class TextStripper {
      * @param input The string to produce a mapping over
      * @return A hashmap with word / occurrences, no stop words
      */
-    public HashMap<String, Integer> mapping(String input) {
-        HashMap<String, Integer> mapping = new HashMap<>();
+    public TreeMap<String, Integer> mapping(String input) {
+        TreeMap<String, Integer> tags = new TreeMap<>();
         input = normalize(input);
         // we already calculated this
         if (input.hashCode() == inputHash)
@@ -71,10 +73,10 @@ public class TextStripper {
         inputHash = input.hashCode();
         for (String word : input.split("\\s+")) {
             if (!stopWords.contains(word)) {
-                mapping.merge(word, 1, Integer::sum);
+                tags.merge(word, 1, Integer::sum);
             }
         }
-        cached = mapping;
-        return mapping;
+        cached = tags;
+        return tags;
     }
 }
