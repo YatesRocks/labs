@@ -63,6 +63,10 @@ public abstract class BasePanel extends JPanel {
     }
 
     public void warnFile() {
-        JOptionPane.showMessageDialog(this, "Whoops! There was an error while reading a file", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Whoops! There was an error while reading a file.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void warnPermission() {
+        JOptionPane.showMessageDialog(this, "Whoops! You don't have the permissions to read that.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

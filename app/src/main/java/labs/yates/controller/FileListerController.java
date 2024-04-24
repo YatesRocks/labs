@@ -47,6 +47,12 @@ public class FileListerController {
      * @param directory the directory to recurse in
      */
     public void recurse(Path directory) {
+        if (directory == null)
+            return;
+        else if (!directory.toFile().canRead()) {
+            fileLister.warnPermission();
+            return;
+        }
         FSViewer viewer = new FSViewer();
         buildViewer(directory, viewer);
         viewer.finish();

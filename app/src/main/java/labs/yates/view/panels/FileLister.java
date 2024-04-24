@@ -22,17 +22,8 @@ public class FileLister extends BasePanel {
         setLayout(new MigLayout());
         add(new JLabel("Lab 11: File Lister"), "align center, center, wrap");
         add(notice, "push, align center, center, wrap");
-        add(buttonPane(button("Pick a directory", this::start)), "align center, center");
-    }
-
-    private void start(ActionEvent actionEvent) {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int returnVal = chooser.showOpenDialog(this);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            Path path = chooser.getSelectedFile().toPath();
-            cont.recurse(path);
-        }
+        ActionListener start = e -> cont.recurse(getFile(JFileChooser.DIRECTORIES_ONLY).toPath());
+        add(buttonPane(button("Pick a directory", start)), "dock south, align center, center");
     }
 
     public void setFSViewer(FSViewer fsViewer) {
