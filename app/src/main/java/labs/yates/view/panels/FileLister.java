@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.nio.file.Path;
 
 // TODO: Extend with BasePanel instead
-public class FileLister extends JPanel {
+public class FileLister extends BasePanel {
     private final FileListerController cont = new FileListerController(this);
     // Components
     private JLabel notice = new JLabel("Press start to pick a directory to recurse");
@@ -22,17 +22,7 @@ public class FileLister extends JPanel {
         setLayout(new MigLayout());
         add(new JLabel("Lab 11: File Lister"), "align center, center, wrap");
         add(notice, "push, align center, center, wrap");
-        JPanel container = new JPanel();
-        container.add(button("Start", this::start));
-        container.add(button("Menu",  e -> CardController.showComponent("Menu")));
-        container.add(button("Quit", e -> System.exit(0)));
-        add(container, "align center, center");
-    }
-
-    public JButton button(String text, ActionListener actionListener) {
-        JButton button = new JButton(text);
-        button.addActionListener(actionListener);
-        return button;
+        add(buttonPane(button("Works?", this::start)), "align center, center");
     }
 
     private void start(ActionEvent actionEvent) {

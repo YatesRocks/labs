@@ -10,8 +10,8 @@ import javax.swing.border.TitledBorder;
  * with <i>n</i> buttons next to it.
  */
 public class LabeledActionRow extends JPanel {
-    private JTextField label = new JTextField();
-    private JPanel buttonPanel = new JPanel();
+    private final JTextField label = new JTextField();
+    private final JPanel buttonPanel = new JPanel();
 
     public LabeledActionRow(String labelTitle) {
         setLayout(new MigLayout(""));
