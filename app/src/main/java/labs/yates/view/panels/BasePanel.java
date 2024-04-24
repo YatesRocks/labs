@@ -10,32 +10,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public abstract class BasePanel extends JPanel {
-    @Deprecated
-    private JButton actionButton;
-
-    @Deprecated
-    protected BasePanel(String actionCommand) {
-        setLayout(new MigLayout());
-        actionButton = new JButton(actionCommand);
-    }
-
     protected BasePanel() {
         setLayout(new MigLayout());
-    }
-
-    /**
-     * Creates a pane filled with buttons needed across every lab.
-     * Stuff like close, menu, and an action button. The action
-     * button must be configured through other methods.
-     * <hr>
-     * Deprecated in favor of the new API.
-     * This is marked for removal.
-     *
-     * @return A JPanel with generic buttons
-     */
-    @Deprecated
-    protected JPanel buttonPane() {
-        return buttonPane(actionButton);
     }
 
     protected JPanel buttonPane(JButton actionButton) {
@@ -53,17 +29,6 @@ public abstract class BasePanel extends JPanel {
         contentPane.add(quitButton, "push, grow");
 
         return contentPane;
-    }
-
-    /**
-     * Set the callback for the Action button in the bottom Button Pane.
-     * Deprecated, please use the new constructor taking in a JButton instead.
-     *
-     * @param actionListener The callback for when Action is pressed.
-     */
-    @Deprecated
-    protected void setAction(ActionListener actionListener) {
-        actionButton.addActionListener(actionListener);
     }
 
     /**

@@ -22,7 +22,7 @@ public class FileLister extends BasePanel {
         setLayout(new MigLayout());
         add(new JLabel("Lab 11: File Lister"), "align center, center, wrap");
         add(notice, "push, align center, center, wrap");
-        add(buttonPane(button("Works?", this::start)), "align center, center");
+        add(buttonPane(button("Pick a directory", this::start)), "align center, center");
     }
 
     private void start(ActionEvent actionEvent) {
