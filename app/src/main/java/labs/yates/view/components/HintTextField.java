@@ -17,8 +17,8 @@ import java.awt.event.FocusEvent;
  * text of your choice.
  */
 public class HintTextField extends JTextField {
-    protected Font gainFont = new Font("Sans-serif", Font.PLAIN, 12);
-    protected Font lostFont = new Font("Serif", Font.ITALIC, 12);
+    protected final Font gainFont = new Font("Sans-serif", Font.PLAIN, 12);
+    protected final Font lostFont = new Font("Serif", Font.ITALIC, 12);
 
     /**
      * Equivalent to a JTextField in functionality, just with

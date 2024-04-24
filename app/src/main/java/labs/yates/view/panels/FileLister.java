@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.Path;
 
-// TODO: Extend with BasePanel instead
 public class FileLister extends BasePanel {
     private final FileListerController cont = new FileListerController(this);
     // Components
