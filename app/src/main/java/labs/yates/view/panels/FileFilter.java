@@ -23,12 +23,6 @@ public class FileFilter extends BasePanel {
 
         add(original, "pad 0 5 -5 -5, push, grow");
         add(filtered, "pad 0 5 -5 -5, push, grow, wrap");
-        add(buttonPane(button("Load file", this::loadFile)), "dock south");
-    }
-
-    private void loadFile(ActionEvent e) {
-        File file = getFile(JFileChooser.FILES_ONLY);
-        if (file != null)
-            controller.loadFile(file);
+        add(buttonPane(button("Load file", e -> controller.loadFile(getFile(JFileChooser.FILES_ONLY)))), "dock south");
     }
 }

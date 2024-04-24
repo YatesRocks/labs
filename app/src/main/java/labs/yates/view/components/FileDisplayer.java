@@ -30,12 +30,6 @@ public class FileDisplayer extends JScrollPane {
         contents.setText(newContents);
     }
 
-    // TODO: Do I need this function?
-    public void setContents(String newContents, String regex) {
-        setContents(newContents);
-        highlight(regex);
-    }
-
     public void highlight(String regex) {
         Highlighter.HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(new Color(212,255,50));
 

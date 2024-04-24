@@ -18,9 +18,7 @@ public class LabMenu extends JPanel {
 
     private void button(String label, Container container, String componentName) {
         JButton button = new JButton(label);
-        button.addActionListener(e -> {
-            CardController.showComponent(componentName);
-        });
+        button.addActionListener(e -> CardController.showComponent(componentName));
         container.add(button, "wrap, growx");
     }
 }
