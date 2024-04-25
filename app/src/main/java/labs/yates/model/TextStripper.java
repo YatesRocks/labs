@@ -31,7 +31,7 @@ public class TextStripper {
     public static String normalize(String input) {
         // NOTE: maybe memoize in future? (could be fun)
         String output = input.toLowerCase(Locale.US);
-        output = output.replaceAll("\\p{Punct}", "");
+        output = output.replaceAll("[^a-zA-Z]", " ");
         return output;
     }
 

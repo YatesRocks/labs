@@ -3,6 +3,7 @@ package labs.yates.view.panels;
 import labs.yates.controller.TagExtractorController;
 import labs.yates.view.components.FileDisplayer;
 import labs.yates.view.components.LabeledActionRow;
+import labs.yates.view.components.TagTable;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -10,7 +11,7 @@ import java.awt.event.ActionListener;
 public class TagExtractor extends BasePanel {
     private final TagExtractorController controller = new TagExtractorController(this);
     // Used by the controller
-    public FileDisplayer tagFile = new FileDisplayer();
+    public TagTable tagTable = new TagTable();
 
     public TagExtractor() {
         // TODO: Inline these?
@@ -21,7 +22,7 @@ public class TagExtractor extends BasePanel {
         labeledActionRow.addButton(button("Load File", loadText));
         labeledActionRow.addButton(button("Save File", save));
         add(labeledActionRow, "dock north, push, grow");
-        add(tagFile, "push, grow, pad 0 5 -5 -5");
+        add(new JScrollPane(tagTable), "push, grow, pad 0 5 -5 -5");
         add(buttonPane(button("Load stop words", loadStopWords)), "dock south, push, grow");
     }
 

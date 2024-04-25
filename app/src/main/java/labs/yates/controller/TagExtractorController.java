@@ -1,5 +1,7 @@
 package labs.yates.controller;
 
+import labs.yates.model.Tag;
+import labs.yates.model.TagModel;
 import labs.yates.model.TextStripper;
 import labs.yates.view.panels.TagExtractor;
 
@@ -13,6 +15,7 @@ import java.util.TreeMap;
 public class TagExtractorController {
     private final TagExtractor tagExtractor;
     private TextStripper textStripper = null;
+    private final TagModel tagModel = new TagModel();
 
     public TagExtractorController(TagExtractor tagExtractor) {
         this.tagExtractor = tagExtractor;
@@ -32,9 +35,19 @@ public class TagExtractorController {
              occ = textStripper.mapping(Files.readString(file.toPath()));
         } catch (IOException e) {
             tagExtractor.warnFile();
-            e.printStackTrace();
             return;
         }
+
+        tagExtractor.tagTable.initSorter(tagModel);
+        occ.forEach(this::doEmplaceTag);
+        tagModel.fireTableDataChanged();
+    }
+
+    private void doEmplaceTag(String k, Integer v) {
+        System.out.println(k + ":" + v);
+        if (v < 4 || v > 200)
+            return;
+        tagModel.emplaceTag(new Tag<>(k, v));
     }
 
     public void save() {
@@ -46,8 +59,7 @@ public class TagExtractorController {
             File file = tagExtractor.getFile(JFileChooser.FILES_ONLY);
             textStripper = new TextStripper(file.toPath());
         } catch (IOException e) {
-            // TODO: more robust yada yada
-            e.printStackTrace();
+            tagExtractor.warnFile();
         }
     }
 }
