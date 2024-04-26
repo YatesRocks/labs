@@ -7,6 +7,7 @@ import labs.yates.view.panels.TagExtractor;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.TreeMap;
@@ -41,6 +42,7 @@ public class TagExtractorController {
         tagExtractor.tagTable.initSorter(tagModel);
         occ.forEach(this::doEmplaceTag);
         tagModel.fireTableDataChanged();
+        tagExtractor.labeledActionRow.setLabel(file.getAbsolutePath());
     }
 
     private void doEmplaceTag(String k, Integer v) {
@@ -51,7 +53,25 @@ public class TagExtractorController {
     }
 
     public void save() {
+        // There's nothing to save.
+        if (tagModel.getRowCount() == 0)
+            return;
 
+        File file = tagExtractor.saveFile();
+
+        if (file == null)
+            return;
+
+        try (FileWriter writer = new FileWriter(file)) {
+            for (Tag<String, Integer> tag : tagModel.getTags()) {
+                writer.append(tag.key())
+                        .append(":")
+                        .append(tag.value().toString())
+                        .append('\n');
+            }
+        } catch (IOException e) {
+            tagExtractor.warnFile();
+        }
     }
 
     public void loadSW() {

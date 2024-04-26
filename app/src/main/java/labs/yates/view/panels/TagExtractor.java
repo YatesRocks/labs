@@ -12,13 +12,14 @@ public class TagExtractor extends BasePanel {
     private final TagExtractorController controller = new TagExtractorController(this);
     // Used by the controller
     public TagTable tagTable = new TagTable();
+    public LabeledActionRow labeledActionRow;
 
     public TagExtractor() {
         // TODO: Inline these?
         ActionListener loadText = e -> controller.load();
         ActionListener loadStopWords = e -> controller.loadSW();
         ActionListener save = e -> controller.save();
-        LabeledActionRow labeledActionRow = new LabeledActionRow("Path");
+        labeledActionRow = new LabeledActionRow("Path");
         labeledActionRow.addButton(button("Load File", loadText));
         labeledActionRow.addButton(button("Save File", save));
         add(labeledActionRow, "dock north, push, grow");

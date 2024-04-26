@@ -48,6 +48,16 @@ public abstract class BasePanel extends JPanel {
         return null;
     }
 
+    public File saveFile() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int returnVal = chooser.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            return chooser.getSelectedFile();
+        }
+        return null;
+    }
+
     /**
      * A convenience method for creating a button and adding
      * an action listener.

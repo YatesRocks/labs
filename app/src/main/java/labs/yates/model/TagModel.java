@@ -20,6 +20,10 @@ public class TagModel extends AbstractTableModel {
         tags.addLast(tag);
     }
 
+    public Vector<Tag<String, Integer>> getTags() {
+        return tags;
+    }
+
     @Override
     public int getRowCount() {
         return tags.size();

@@ -29,4 +29,8 @@ public class LabeledActionRow extends JPanel {
     public void addButton(JButton button) {
         buttonPanel.add(button, "growy");
     }
+
+    public void setLabel(String label) {
+        this.label.setText(label);
+    }
 }
