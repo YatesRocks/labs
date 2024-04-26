@@ -7,6 +7,7 @@ import javax.swing.table.TableRowSorter;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Document
 public class TagTable extends JTable {
     public void initSorter(TagModel tagModel) {
         TableRowSorter<TagModel> sorter = new TableRowSorter<>();

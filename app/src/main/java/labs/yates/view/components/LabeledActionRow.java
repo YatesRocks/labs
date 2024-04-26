@@ -5,6 +5,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
+// TODO: Document
 /**
  * Terrible name, but this is just a named JLabel
  * with <i>n</i> buttons next to it.

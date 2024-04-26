@@ -3,9 +3,7 @@ package labs.yates.model;
 import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
-/**
- * The backend for any JTables you see in the application
- */
+// TODO: Class documentation
 public class TagModel extends AbstractTableModel {
     private final Vector<Tag<String, Integer>> tags = new Vector<>();
     private static final int COLS = 2;
