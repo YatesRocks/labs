@@ -23,6 +23,7 @@ public class TagExtractorController {
     }
 
     public void load() {
+        // TODO: Investigate using RAKE_NLTK to filter / weight tags.
         if (textStripper == null) {
             tagExtractor.warnSW();
             return;
