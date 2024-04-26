@@ -3,10 +3,7 @@ package labs.yates;
 import com.formdev.flatlaf.FlatLightLaf;
 import labs.yates.controller.CardController;
 import labs.yates.view.Window;
-import labs.yates.view.panels.FileFilter;
-import labs.yates.view.panels.FileLister;
-import labs.yates.view.panels.LabMenu;
-import labs.yates.view.panels.TagExtractor;
+import labs.yates.view.panels.*;
 
 import javax.swing.*;
 
@@ -22,6 +19,7 @@ public class App {
         CardController.registerComponent("Lab11", new FileLister());
         CardController.registerComponent("Lab9", new FileFilter());
         CardController.registerComponent("Lab8", new TagExtractor());
+        CardController.registerComponent("Lab6", new PizzaOrderForm());
     }
     
     public static void main(String[] args) {

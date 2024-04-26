@@ -13,6 +13,7 @@ public class LabMenu extends JPanel {
         button("Lab 11: FileLister", container, "Lab11");
         button("Lab 09: Data Streams", container, "Lab9");
         button("Lab 08: Tag Extractor", container, "Lab8");
+        button("Lab 06: Pizza Order Form", container, "Lab6");
         add(container, "push, align center, center");
     }
 
