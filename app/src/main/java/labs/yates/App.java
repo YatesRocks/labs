@@ -13,7 +13,7 @@ public class App {
         // modern look.
         FlatLightLaf.setup();
         // Configures the window & launches
-        new Window(600, 600);
+        new Window(600, 700);
         // Here we register all the Lab panes w/the global CardLayout / JPanel
         CardController.registerComponent("Menu", new LabMenu());
         CardController.registerComponent("Lab11", new FileLister());
